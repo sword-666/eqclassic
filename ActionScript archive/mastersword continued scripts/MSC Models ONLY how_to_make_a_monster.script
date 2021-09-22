@@ -1,0 +1,240 @@
+//How to build a monster: basic
+//( Last update: FEB2013a )
+//
+//What we are going to create here is a basic orc with a fire blade
+#scope server
+//^ Monsters are dealth with almost entirely server side
+//So to avoid "mirroring" the script to the client (giving it a bunch of info it can't use)
+//We put this at the top of the script to ensure it is scoped to the server
+//rather than the default [shared]
+{
+	//MAIN PRE-LOAD SECTION
+	//all vars here are loaded before the monster spawns
+	//the following vars must be defined
+	//note the const/setvar/setvard should be consistent here
+	//or it may not play nice with the base AI
+	//setvard's here do not take effect until after spawn
+
+	//this is the monsters attack animation from the model
+	//if the attack type varies, simply set this again during
+	//npc_selectattack
+	setvard ANIM_ATTACK attack1
+
+	//These are setvar (preload), as they often  get defined in npc_spawn (see below)
+	//They must all be set
+	setvar ANIM_RUN run	//walk anim
+	setvar ANIM_WALK walk	//run anim
+	setvar ANIM_IDLE idle1	//idle anim
+	
+	//- MOVE_RANGE 
+	//- monster will try to get thise close to the player
+	//- it should be greater than the monster width (defined in npc_spawn below)
+	setvard MOVE_RANGE 64
+
+	//- ATTACK_RANGE
+	//when the monster gets this close, it will play ANIM_ATTACK
+	//should always be a bit more than MOVE_RANGE
+	setvard ATTACK_RANGE 80
+
+	//- ATTACK_HITRANGE
+	//This is the actual range of the attack
+	//should be at least monster height + 38
+	//and at least 150% ATTACK_RANGE
+	//if a player is above or below a monster, the monster will substitute
+	//this number for ATTACK_RANGE
+	//as otherwise players can jump on monster's heads and be safe
+	setvard ATTACK_HITRANGE 120
+
+	//optional: flinch
+	setvard ANIM_FLINCH flinch //anim to play when flinching
+	setvard FLINCH_DAMAGE_THRESHOLD 30 //min damage needs to be done to make flinch (defaults to 10% hp)
+	setvard FLINCH_CHANCE 50 //%chance of flinching each time
+	setvard FLINCH_DELAY 5.0 //delay between flinches (5.0 is actually the default, just putting it here to shown it can be set)
+
+	//optional: drop gold - this lets the base_monster_shared script adjust gold drops
+	setvard DROP_GOLD 1 //set 1 to drop gold
+	setvard DROP_GOLD_AMT $rand(5,15) //amount of gold to drop
+
+	const SOUND_DEATH voices/orc/die.wav //sound played from base_npc when I die
+
+	//These vars can be named anything you like
+	//as they are used only by the top script (ie. this one, and not the lower includes):
+	//any values that never change should be const
+	//values that change should be setvard
+	//if you need an adjustable value in npc_spawn
+	//it must be a setvar - or it will not be set until after spawn
+	const ANIM_SWING swordswing1_L
+	const ANIM_SMASH battleaxe_swing1_L
+	const ANIM_PARRY deflectcounter
+
+	//note on these two: since they are constants, they will be replaced during "live" compile with
+	//their litteral strings, if they were setvard, they would instead contain the random number selected at this point
+	const DMG_SWING $rand(20,40)
+	const DMG_SMASH $rand(30,50)
+
+	const ATTACK_HITCHANCE 80	//chance to hit per swing in this script
+
+	const BURN_CHANCE 25		//chance to burn with overhead attack (custom on this tutorial monster)
+
+	//custom sounds
+	const SOUND_HELP "voices/orc/help.wav"
+	const SOUND_ATTACK1 "voices/orc/attack.wav"
+	const SOUND_ATTACK2 "voices/orc/attack2.wav"
+	const SOUND_ATTACK3 "voices/orc/attack3.wav"
+
+	const SOUND_STRUCK1 "body/armour1.wav"
+	const SOUND_STRUCK2 "body/armour2.wav"
+	const SOUND_STRUCK3 "body/armour3.wav"
+	const SOUND_PAIN "monsters/orc/pain.wav"
+}
+
+#include monsters/base_monster_new
+//This includes by recursion the following scripts:
+//monsters/base_monster_shared - basic monster functions (drop stuff on death, etc)
+//monsters/base_npc - basic npc functions (death sequences, blood, map settings, etc.)
+//monsters/base_npc_attack_new - main AI (hunt system, flee system, various combat functions)
+//monsters/base_anti_stuck - anti-stuck system
+//monsters/externals - functions shared by all dynamic NPCs
+//- do not include these indivudally, they are dependant on one anothers function
+//- However, if you want an NPC that doesn't do anything but die
+//- You can include only monsters/base_npc
+//- we'll have another file to teach how to build basic interactive NPCs in the future
+
+{ npc_spawn
+
+	//this event is called from base_npc from the dll event: game_spawn
+	//this is the secondary preload, so everything here is loaded before spawn as well
+	//only setvar and const variables are defined at this point
+	//setvard's are not initialized until the monster actually spawns
+	//any timed events called from here, however, take place just after spawn
+
+	name a|Basic Monster		//a| is a gramar seperator for hud reports, an|Orc, a|Goblin, a set of|Gauntlets, etc.
+
+	race orc					//creatures faction (see \races.script for behaviors)
+								//normally we would use monsters/orc_base to make an orc, but for the sake of this example, we'll do it all here
+
+	hp 320						//how much health
+
+	setmodel "monsters/orc.mdl"	//which model to use - remember: media extensions define the root folders, so you ommit sound/ models/ sprites/ etc.
+	width 32					//width
+	height 72					//height - note that creatures shorter than this are easy to get on top of
+								//sometimes the 'shape' of a monster will allow players to 'climb' it
+								//height and width are ignored for projectiles and erratic lightning - the model's hitboxes are used instead
+	takedmg all 0.7				//armor: multiplier reduces/increases incoming damage (30% armor here)
+	takedmg fire 0.25			//this makes the creature takes 75% fire resistant
+	takedmg cold 1.5			//this makes him take 150% damage from cold attacks
+								//monsters/base_npc automatically sets takedmg holy 0.0 (immune) for all but undead and demon races
+
+	setmoveanim ANIM_RUN		//default move animation
+	setidleanim ANIM_IDLE		//default idle animation
+
+	setstat parry 50			//parry skill (works differently than players, must be > 100% to have real good parry)
+
+	saytextrange 1024			//how far away the monsters saytext statements can be heard
+								//if this is not set, it defaults to 320
+
+	//setup model body
+	//if you want to make this variable, you want to use npc_post_spawn instead
+							//These are the model bodys for monsters/orc.mdl (going using, cap, sword)
+							//remember submodels # from 0 in scripts, but from 1 in Jed's HLMV
+   	setmodelbody	0 2		//Body 0=naked 1=leather 2=plate 3=green-hide
+   	setmodelbody	1 1		//Head 0=cap_shorthorn 1=cap_nohorn 2=Buffalo_skin 3=cheif_ramhorns 4=green_hood
+   	setmodelbody	2 4		//Weapon 0=fist 1=axe 2=bow_weak 3=bow_strng 4=sword 5=bloodyaxe 6=sword&sheild
+
+	callevent 0.1 bmonster_yell	//this is an example custom at spawn event
+}
+
+{ bmonster_yell
+	playsound 0 10 SOUND_HELP //playsound <channel> <volume> <sound> //generally channel 0 (auto-select) is best, volume is 1-10
+	saytext "Help! Intruders!"
+}
+
+{ npc_selectattack //called from monsters/base_npc_attack_new->npcatk_attack, whenever monster is within ATTACK_HITRANGE and can see enemy
+
+	local RND_ATTACK $rand(1,2)		//locals are only kept within individual events
+	if ( RND_ATTACK == 1 ) setvard ANIM_ATTACK ANIM_SWING	//note: spacing is important here, scripts parse by spaces
+	if ( RND_ATTACK == 2 ) setvard ANIM_ATTACK ANIM_SMASH
+}
+
+{ game_damaged //PARAM1=attacker PARAM2=dmg PARAM3=dmg_type
+
+	//this DLL event is called whenever a monster takes damage
+	//play one of these sounds randomly ("none" comes out silent)
+	playrandomsound 0 8 SOUND_PAIN SOUND_PAIN2 none none
+}
+
+{ game_death
+
+	//this goofie bit here is just to give an common example as how the $get(ent,property) command works
+	local SLAYER_NAME $get(ent_laststruck,name)
+	saytext SLAYER_NAME "killed me! Oh the embarasment!"
+}
+
+{ npc_flinch
+
+	//called from base_npc_attack_new->npcatk_checkflinch if monster flinches
+	//you can reset the flinch animation here if you'd like, it's played by the base just after this
+	playsound 0 10 SOUND_PAIN
+
+	local PWNER_NAME $get(ent_laststruck,name)
+	stradd PWNER_NAME ","
+	saytext PWNER_NAME "why must you hurt me so!?"
+	//this little trick will pull the name of the last guy who hit him, and add a comma to the end so you get
+	//Saint_Thoth, why must you hurt me so!?
+	//Remember, all vars in scripts are techincally strings
+	//so you can use stradd to add letters to strings, and compare numbers via string operators, etc. 
+}
+
+{ game_parry
+
+	//dll event called whenever monster parries an attack
+
+	playsound 0 10 SOUND_STRUCK1
+
+	playanim once ANIM_PARRY
+	setvard AS_ATTACKING game.time
+	//note: whenever you force an animation that doesnt involve moving
+	//you need to set AS_ATTACKING to game.time or more (based on the length of the animation)
+	//as otherwise anti-stuck will think the monster is stuck, and cause him to attempt to free himself
+}
+
+//animation events
+//these events are called from the model via event 500 or 600
+//you can examine the models in detail to see event names using
+//Jed's HLMV: http://www.wunderboy.org/apps/jhlmv.php
+{ swing_sword //called from anim swordswing1_L @ frame #14
+
+	//standard attack damage method: callevent npcatk_dodamage <target> <range> <dmg> <cth%> [type]
+	callevent npcatk_dodamage NPCATK_TARGET ATTACK_HITRANGE DMG_SWIPE ATTACK_HITCHANCE slash
+	setvard BURN_ATTACK 0 //tells game_dodamage below that this is not a fire attack
+	//note, on the new ai, the latest target is always stored in NPCATK_TARGET
+	//on the older, it is HUNT_LASTTARGET, but it is updated less often
+	//they both store their last set attack target in both those vars for compatiblity
+
+}
+
+//The slower overhead swing:
+{ swing_axe //called from anim battleaxe_swing1_L @ frame #22
+
+	setvard BURN_ATTACK 1 //tells game_dodamage that will follow this to set the target on fire, if this hits
+	callevent npcatk_dodamage NPCATK_TARGET ATTACK_HITRANGE DMG_SMASH ATTACK_HITCHANCE slash
+	//^ this will cause game_dodamage to be called when the damage is actually passed
+}
+
+//This bit is a little advanced
+//- we are giving him a 25% chance to set a target on fire with his secondary (overhead) swing, if he hits with it
+{ game_dodamage //PARAM1=hit:0|1 PARAM2=ent_hit PARAM3=(start) PARAM4=(end)
+
+	//this dll event is called whenever the monster attempts to damage something
+	if ( PARAM1 ) //PARAM1 will be 1 on a hit
+	{
+		if BURN_ATTACK
+		if $rand(1,100) < BURN_CHANCE
+		//you can see the paramaters for effects/effect_burn by opening the script or the ms.stx
+		//the ones are are using here are <duration> <inflictor_id> <damage/sec>
+		applyeffect PARAM2 effects/effect_burn 5.0 $get(ent_me,id) DMG_BURN
+		//note that you cannot use simply "ent_me" here, as you are passing the var to another event
+		//if you did so, the event would recieve it as the litteral string "ent_me" rather than this monster's ID
+	}
+	setvard BURN_ATTACK 0 //we must reset this to 0, or it'll try to burn every time the fire does damage as well
+}
