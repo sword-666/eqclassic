@@ -7,8 +7,8 @@ Submit detailed bug reports to (vluzacn@163.com)
 Command line: Z:\STEAML~1\STEAMA~1\common\SVENCO~2\mapping\COMPIL~1\HLCSG_~1.EXE "Z:\SteamLibrary\steamapps\common\Sven Co-op\svencoop\maps\eqclassic" 
 Arguments: "Z:\SteamLibrary\steamapps\common\Sven Co-op\svencoop\maps\eqclassic" 
 Entering Z:\SteamLibrary\steamapps\common\Sven Co-op\svencoop\maps\eqclassic.map
-Warning: Entity 8 (classname "monster_kingpin"): origin outside +/-4096: (-2481,4418,791)
-Warning: Entity 66 (classname "monster_gargantua"): origin outside +/-4096: (-883,4615,391)
+Warning: Entity 8 (classname "monster_kingpin"): origin outside +/-4096: (-2481,4418,915)
+Warning: Entity 65 (classname "monster_gargantua"): origin outside +/-4096: (-883,4615,391)
 
 Current hlcsg Settings
 Name                 |  Setting  |  Default
@@ -47,9 +47,9 @@ Wadinclude list :
 [zhlt.wad]
 
 CreateBrush:
- (0.06 seconds)
+ (0.05 seconds)
 CSGBrush:
- (0.31 seconds)
+ (0.33 seconds)
 
 Including Wadfile: \steamlibrary\steamapps\common\sven co-op\svencoop\zhlt.wad
  - Contains 2 used textures, 6.25 percent of map (19 textures in wad)
@@ -68,7 +68,7 @@ Using Wadfile: \steamlibrary\steamapps\common\sven co-op\svencoop\eqdungeon.wad
 
 Wad files required to run the map: "decals.wad;halflife.wad;liquids.wad;xeno.wad;sdlair.wad;eqdungeon.wad;"
 Texture usage is at 0.31 mb (of 32.00 mb MAX)
-0.44 seconds elapsed
+0.45 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -108,18 +108,19 @@ max node size       [    1024 ] [    1024 ] (Min 64) (Max 65536)
 remove hull 2       [     off ] [     off ]
 
 
-SolidBSP [hull 0] 500...1000...1500...1915 (0.17 seconds)
+SolidBSP [hull 0] 500...1000...1500...2000...2304 (0.20 seconds)
 BSP generation successful, writing portal file 'Z:\SteamLibrary\steamapps\common\Sven Co-op\svencoop\maps\eqclassic.prt'
-SolidBSP [hull 1] 500...1000...1500...2000...2049 (0.17 seconds)
-SolidBSP [hull 2] 500...1000...1500...1584 (0.14 seconds)
-SolidBSP [hull 3] 500...1000...1500...2000...2135 (0.17 seconds)
-Reduced 3781 clipnodes to 3507
-Reduced 1074 texinfos to 706
+SolidBSP [hull 1] 500...1000...1500...2000...2392 (0.20 seconds)
+SolidBSP [hull 2] 500...Warning: Ambiguous leafnode content ( EMPTY and SOLID ) at (-2301,3560,496)-(-2141,3740,522) in hull 2 of model 0 (entity: classname "worldspawn", origin "", targetname "")
+1000...1500...1909 (0.16 seconds)
+SolidBSP [hull 3] 500...1000...1500...2000...2450 (0.22 seconds)
+Reduced 3953 clipnodes to 3664
+Reduced 1134 texinfos to 735
 Reduced 32 texdatas to 31 (3636 bytes to 2480)
-Reduced 7518 planes to 2306
+Reduced 8176 planes to 2421
 FixBrinks:
-Increased 3507 clipnodes to 3525.
-1.17 seconds elapsed
+Increased 3664 clipnodes to 3676.
+1.33 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -133,8 +134,8 @@ Submit detailed bug reports to (vluzacn@163.com)
 -----  BEGIN  hlvis -----
 Command line: Z:\STEAML~1\STEAMA~1\common\SVENCO~2\mapping\COMPIL~1\HLVIS_~1.EXE "Z:\SteamLibrary\steamapps\common\Sven Co-op\svencoop\maps\eqclassic" 
 Arguments: "Z:\SteamLibrary\steamapps\common\Sven Co-op\svencoop\maps\eqclassic" 
- 523 portalleafs
-1209 numportals
+ 557 portalleafs
+1388 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -154,12 +155,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.03 seconds)
+ (0.02 seconds)
 LeafThread:
- (0.08 seconds)
-average leafs visible: 33
-g_visdatasize:6471  compressed from 34518
-0.12 seconds elapsed
+ (0.19 seconds)
+average leafs visible: 44
+g_visdatasize:8275  compressed from 38990
+0.22 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -247,24 +248,24 @@ Reading texlights from 'Z:\STEAML~1\STEAMA~1\common\SVENCO~2\mapping\COMPIL~1\li
 Reading texlights from info_texlights map entity
 0 opaque models
 0 opaque faces
-2673 faces
-Create Patches : 15529 base patches
-286397 square feet [41241224.00 square inches]
-3238 direct lights and 16386 fast direct lights
+2828 faces
+Create Patches : 16096 base patches
+301663 square feet [43439488.00 square inches]
+3705 direct lights and 16386 fast direct lights
 1 light styles
 
 FindFacePositions:
  (0.84 seconds)
 BuildFacelights:
- (10.70 seconds)
+ (12.72 seconds)
 BuildVisLeafs:
- (0.55 seconds)
-visibility matrix   :   2.2 megs
+ (0.66 seconds)
+visibility matrix   :   2.6 megs
 MakeScales:
- (1.31 seconds)
-Transfer Lists :     4303213 :     4.30M transfers
-       Indices :     1948824 :     1.86M bytes
-          Data :     8645318 :     8.24M bytes
+ (1.58 seconds)
+Transfer Lists :     5064474 :     5.06M transfers
+       Indices :     2588700 :     2.47M bytes
+          Data :    10169022 :     9.70M bytes
 Bounce 1 GatherLight:
  (0.03 seconds)
 Bounce 2 GatherLight:
@@ -272,7 +273,7 @@ Bounce 2 GatherLight:
 Bounce 3 GatherLight:
  (0.03 seconds)
 Bounce 4 GatherLight:
- (0.02 seconds)
+ (0.03 seconds)
 Bounce 5 GatherLight:
  (0.03 seconds)
 Bounce 6 GatherLight:
@@ -280,14 +281,14 @@ Bounce 6 GatherLight:
 Bounce 7 GatherLight:
  (0.03 seconds)
 Bounce 8 GatherLight:
- (0.02 seconds)
+ (0.03 seconds)
 CreateTriangulations:
  (0.08 seconds)
 AddPatchLights:
- (1.16 seconds)
+ (1.19 seconds)
 FinalLightFace:
  (0.00 seconds)
-16.09 seconds elapsed
+18.61 seconds elapsed
 
 -----   END   hlrad -----
 
