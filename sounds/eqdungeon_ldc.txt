@@ -1,0 +1,8 @@
+"headcrab/hc_attack1.wav" "eqdungeon/spid_att.wav"
+"headcrab/hc_attack2.wav" "eqdungeon/spid_att.wav"
+"headcrab/hc_attack3.wav" "eqdungeon/spid_att.wav"
+"headcrab/hc_pain1.wav" "eqdungeon/spid_hit.wav"
+"headcrab/hc_pain1.wav" "eqdungeon/spid_hit.wav"
+"headcrab/hc_pain1.wav" "eqdungeon/spid_hit.wav"
+"headcrab/hc_die1.wav" "eqdungeon/spid_die.wav"
+"headcrab/hc_die2.wav" "eqdungeon/spid_die.wav"
