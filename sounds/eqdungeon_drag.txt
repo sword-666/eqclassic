@@ -17,4 +17,4 @@
 "kingpin/kingpin_seeker2.wav" "eqdungeon/dragon_roar2_distant.wav"
 "kingpin/kingpin_seeker3.wav" "eqdungeon/dragon_roar2_distant.wav"
 "kingpin/port_suckin1.wav" "eqdungeon/dragon_wingflap4_distant.wav"
-"kingpin/port_suckout.wav" "eeqdungeon/dragon_wingflap4_distant.wav"
+"kingpin/port_suckout.wav" "eqdungeon/dragon_wingflap4_distant.wav"
