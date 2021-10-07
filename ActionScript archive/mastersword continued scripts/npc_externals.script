@@ -1,4 +1,0 @@
-#scope server
-//External events to be shared by monsters/npcs go here
-//mobs must use base_npc (or have it included by cascaded, eg. base_monster_new)
-//for a full list of currently available npc externals, see est_scripts\reference_scripts\monsters\externals.script

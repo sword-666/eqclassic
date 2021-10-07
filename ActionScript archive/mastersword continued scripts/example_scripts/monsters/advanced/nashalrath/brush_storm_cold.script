@@ -1,7 +1,0 @@
-#scope server
-{
-	name_unique brush_storm_cold
-}
-
-#include [server] nashalrath/base_storm_brush
-
