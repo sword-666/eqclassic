@@ -5810,7 +5810,7 @@
 "classify" "7"
 "TriggerCondition" "4"
 "bloodcolor" "1"
-"health" "32000"
+"health" "10000"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "Lord Nagafen"
@@ -5941,6 +5941,7 @@
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "classify" "7"
+"health" "200"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "imp protector"
@@ -5957,10 +5958,10 @@
 "displayname" "Efreeti Lord Djarn"
 "model" "models/eqdungeon/elord.mdl"
 "soundlist" "eqdungeon_elord.txt"
-"origin" "1629 1327 205"
+"origin" "1629 1327 194"
 }
 {
-"classname" "monster_zombie"
+"classname" "monster_gonome"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "classify" "7"
@@ -5971,9 +5972,10 @@
 "maxhullsize" "0 0 0"
 "freeroam" "2"
 "displayname" "fire giant"
-"model" "models/eqdungeon/firegiant.mdl"
 "TriggerTarget" "fgd"
-"origin" "-510 4029 243"
+"model" "models/eqdungeon/firegiant.mdl"
+"soundlist" "eqdungeon_fg.txt"
+"origin" "-539 3889 250"
 }
 {
 "classname" "monster_headcrab"
@@ -6036,7 +6038,7 @@
 "origin" "-349 1674 82"
 }
 {
-"classname" "monster_zombie"
+"classname" "monster_gonome"
 "angles" "0 180 0"
 "rendercolor" "0 0 0"
 "classify" "7"
@@ -6047,24 +6049,26 @@
 "maxhullsize" "0 0 0"
 "freeroam" "1"
 "displayname" "fire giant"
-"model" "models/eqdungeon/firegiant.mdl"
 "TriggerTarget" "fgd1"
+"model" "models/eqdungeon/firegiant.mdl"
+"soundlist" "eqdungeon_fg.txt"
 "origin" "-987 3220 242"
 }
 {
-"classname" "monster_zombie"
+"classname" "monster_gonome"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "classify" "7"
 "TriggerCondition" "2"
 "bloodcolor" "1"
-"health" "10000"
+"health" "5000"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "freeroam" "1"
 "displayname" "Warlord Skarlon"
-"model" "models/eqdungeon/firegiant.mdl"
 "TriggerTarget" "fgd1"
+"soundlist" "eqdungeon_fg.txt"
+"model" "models/eqdungeon/firegiant.mdl"
 "origin" "-1316 3213 242"
 }
 {
@@ -6305,7 +6309,6 @@
 "maxhullsize" "0 0 0"
 "displayname" "kobold warrior"
 "model" "models/eqdungeon/kobold.mdl"
-"soundlist" "eqdungeon_kob.txt"
 "origin" "-38 427 78"
 }
 {
@@ -6434,6 +6437,7 @@
 "angles" "0 -178 0"
 "rendercolor" "0 0 0"
 "classify" "7"
+"health" "200"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "imp protector"
@@ -6451,7 +6455,7 @@
 "origin" "-330 3157 177"
 }
 {
-"classname" "monster_zombie"
+"classname" "monster_gonome"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "classify" "7"
@@ -6460,9 +6464,10 @@
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "Magus Rokyl"
-"model" "models/eqdungeon/firegiant.mdl"
 "TriggerTarget" "fgd"
-"origin" "-1786 2461 242"
+"soundlist" "eqdungeon_fg.txt"
+"model" "models/eqdungeon/firegiant.mdl"
+"origin" "-1786 2461 244"
 }
 {
 "classname" "monster_alien_voltigore"
@@ -6472,7 +6477,7 @@
 "classify" "7"
 "TriggerCondition" "2"
 "bloodcolor" "1"
-"health" "15000"
+"health" "1500"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "freeroam" "1"
@@ -6520,7 +6525,7 @@
 }
 }
 {
-"classname" "monster_zombie"
+"classname" "monster_gonome"
 "spawnflags" "3"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
@@ -6532,10 +6537,11 @@
 "maxhullsize" "0 0 0"
 "freeroam" "2"
 "displayname" "fire giant"
-"model" "models/eqdungeon/firegiant.mdl"
 "target" "fg1"
 "TriggerTarget" "fgd3"
-"origin" "59 3590 104"
+"soundlist" "eqdungeon_fg.txt"
+"model" "models/eqdungeon/firegiant.mdl"
+"origin" "59 3590 117"
 }
 {
 "classname" "func_door_rotating"
@@ -6543,8 +6549,6 @@
 "zhlt_embedlightmapresolution" "4"
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
-"locked_sound" "2"
-"unlocked_sound" "3"
 "fireonstart_triggerstate" "2"
 "fireonstop_triggerstate" "2"
 "fireonopening_triggerstate" "2"
@@ -6552,6 +6556,7 @@
 "fireonopened_triggerstate" "2"
 "fireonclosed_triggerstate" "2"
 "speed" "100"
+"movesnd" "6"
 "wait" "-1"
 "m_iObeyTriggerMode" "2"
 "weapon" "1"
@@ -6776,7 +6781,7 @@
 "angles" "0 0 0"
 "teleport_cooldown" "1"
 "targetname" "monk"
-"origin" "133 -388 -11"
+"origin" "140 -390 -11"
 }
 {
 "classname" "trigger_teleport"
@@ -6895,6 +6900,9 @@
 "model_7" "models/player/eq_paladin/eq_paladin.mdl"
 "model_8" "models/player/eq_warrior/eq_warrior.mdl"
 "model_9" "models/eqdungeon/beetle.mdl"
+"sound_1" "eqclassic/giantatt.wav"
+"sound_2" "eqclassic/giantdie.wav"
+"sound_3" "eqclassic/giantidl.wav"
 "origin" "579 338 157"
 }
 {
@@ -6931,29 +6939,33 @@
 }
 {
 "classname" "monster_scientist"
+"spawnflags" "2"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
-"classify" "3"
+"classify" "1"
 "body" "-1"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "freeroam" "1"
 "sequence" "13"
 "displayname" "freeport banker"
-"origin" "551 130 146"
+"model" "models/eqdungeon/eq_monk.mdl"
+"origin" "588 157 189"
 }
 {
 "classname" "monster_scientist"
+"spawnflags" "2"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
-"classify" "3"
+"classify" "1"
 "body" "-1"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "freeroam" "1"
 "sequence" "13"
 "displayname" "freeport banker"
-"origin" "557 253 146"
+"model" "models/eqdungeon/eq_warrior.mdl"
+"origin" "581 289 189"
 }
 {
 "classname" "weapon_pipewrench"
@@ -7075,8 +7087,7 @@
 }
 {
 "classname" "trigger_hurt_remote"
-"dmg" "10"
-"delay" "3"
+"dmg" "1"
 "targetname" "bat"
 "targetclass" "player"
 "target" "!activator"
@@ -7090,8 +7101,8 @@
 "rendercolor" "0 0 0"
 "framerate" "10.0"
 "model" "sprites/eqclassic/lscr.spr"
-"scale" "1"
-"origin" "-53 -720 46"
+"scale" ".5"
+"origin" "-219 -720 46"
 }
 {
 "classname" "info_node"
@@ -7111,7 +7122,7 @@
 }
 {
 "classname" "info_node"
-"origin" "-512 4464 410"
+"origin" "-525 4332 410"
 }
 {
 "classname" "info_node"
@@ -7155,15 +7166,15 @@
 }
 {
 "classname" "info_node_air"
-"origin" "-2837 4603 962"
+"origin" "-2915 4603 962"
 }
 {
 "classname" "info_node_air"
-"origin" "-2852 3998 962"
+"origin" "-2088 4347 962"
 }
 {
 "classname" "info_node_air"
-"origin" "-2090 4354 962"
+"origin" "-2291 3640 962"
 }
 {
 "classname" "env_sprite"
@@ -7173,15 +7184,15 @@
 "rendercolor" "0 0 0"
 "framerate" "10.0"
 "model" "sprites/eqclassic/skarlornrsw.spr"
-"scale" "1"
-"origin" "-1411 2953 385"
+"scale" ".5"
+"origin" "-913 3199 385"
 }
 {
 "classname" "env_shake"
 "spawnflags" "1"
-"amplitude" "4.0"
+"amplitude" "7.0"
 "radius" "500"
-"duration" "1.0"
+"duration" "5.0"
 "frequency" "2.5"
 "targetname" "dragd"
 "origin" "-1975 3972 641"
@@ -7209,6 +7220,7 @@
 "angles" "0 -178 0"
 "rendercolor" "0 0 0"
 "classify" "7"
+"health" "200"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "imp protector"
@@ -7220,6 +7232,7 @@
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "classify" "7"
+"health" "200"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "imp protector"
@@ -7231,6 +7244,7 @@
 "angles" "0 -178 0"
 "rendercolor" "0 0 0"
 "classify" "7"
+"health" "200"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "displayname" "imp protector"
@@ -7239,13 +7253,13 @@
 }
 {
 "classname" "monster_headcrab"
-"angles" "0 0 0"
+"angles" "0 -159 0"
 "rendercolor" "0 0 0"
 "classify" "7"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "model" "models/eqdungeon/beetle.mdl"
-"origin" "748 1936 -39"
+"origin" "747 1934 -39"
 }
 {
 "classname" "monster_headcrab"
@@ -7316,6 +7330,7 @@
 "health" "300"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
+"freeroam" "2"
 "model" "models/eqdungeon/sonicbat.mdl"
 "displayname" "sonic bat"
 "origin" "758 1250 151"
@@ -7329,6 +7344,7 @@
 "health" "300"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
+"freeroam" "2"
 "model" "models/eqdungeon/sonicbat.mdl"
 "displayname" "sonic bat"
 "origin" "754 1092 151"
@@ -7352,15 +7368,15 @@
 "scale" "1"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
-"collect_limit" "1"
 "weight" "1.0"
 "carried_hidden" "1"
 "carried_sequencename" "carried"
 "carried_sequence" "1"
-"return_timelimit" "10.0"
+"return_timelimit" "-1"
 "holder_timelimit_wait_until_activated" "1"
 "holder_can_drop" "1"
 "holder_keep_on_death" "1"
+"holder_keep_on_respawn" "1"
 "effect_glow" "0 0 0"
 "effect_respiration" "0.0"
 "effect_friction" "100.0"
@@ -7371,7 +7387,7 @@
 "item_name" "key"
 "display_name" "Crusher Open"
 "description" "The crusher block is now open!"
-"origin" "-223 636 89"
+"origin" "-136 636 89"
 }
 {
 "classname" "item_battery"
@@ -7449,7 +7465,7 @@
 }
 {
 "classname" "info_node"
-"origin" "-313 644 92"
+"origin" "-313 644 94"
 }
 {
 "classname" "info_node"
@@ -7549,4 +7565,236 @@
 "targetclass" "player"
 "targetname" "fgd2"
 "origin" "-860 4450 469"
+}
+{
+"classname" "weapon_egon"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"dmg" "200"
+"targetname" "frost shock"
+"origin" "-2203 2988 370"
+}
+{
+"classname" "weapon_displacer"
+"spawnflags" "4096"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"dmg" "200"
+"targetname" "ice comet"
+"m_flPrimaryAmmoNeeded" "10"
+"m_flSecondaryAmmoNeeded" "10"
+"m_flTertiaryAmmoNeeded" "10"
+"origin" "-2208 2919 370"
+}
+{
+"classname" "ammo_gaussclip"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"targetname" "mana"
+"origin" "-2198 2891 366"
+}
+{
+"classname" "ammo_gaussclip"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"targetname" "mana"
+"origin" "-2197 2862 366"
+}
+{
+"classname" "ammo_gaussclip"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"targetname" "mana"
+"origin" "-2197 2827 366"
+}
+{
+"classname" "ammo_gaussclip"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"targetname" "mana"
+"origin" "-2197 2800 366"
+}
+{
+"classname" "info_node"
+"origin" "-316 582 132"
+}
+{
+"classname" "info_node"
+"origin" "-467 583 163"
+}
+{
+"classname" "info_node"
+"origin" "-2300 3388 500"
+}
+{
+"classname" "info_node"
+"origin" "-2284 4019 500"
+}
+{
+"classname" "item_generic"
+"angles" "0 -180 0"
+"rendercolor" "0 0 0"
+"model" "models/eqdungeon/walltorch.mdl"
+"sequencename" "idle"
+"scale" "2"
+"minhullsize" "0 0 0"
+"maxhullsize" "0 0 0"
+"origin" "-626 4649 601"
+}
+{
+"classname" "item_generic"
+"angles" "0 -180 0"
+"rendercolor" "0 0 0"
+"model" "models/eqdungeon/walltorch.mdl"
+"sequencename" "idle"
+"scale" "2"
+"minhullsize" "0 0 0"
+"maxhullsize" "0 0 0"
+"origin" "-1100 4645 601"
+}
+{
+"classname" "env_sprite"
+"angles" "0 0 0"
+"renderamt" "255"
+"rendercolor" "0 0 0"
+"framerate" "10.0"
+"model" "sprites/black_smoke3.spr"
+"scale" "2"
+"origin" "173 4070 177"
+}
+{
+"classname" "item_inventory"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"model" "models/eqdungeon/w_pal_crowbar.mdl"
+"sequencename" "idle"
+"scale" "2"
+"minhullsize" "0 0 0"
+"maxhullsize" "0 0 0"
+"weight" "1.0"
+"carried_hidden" "1"
+"carried_sequencename" "carried"
+"carried_sequence" "1"
+"return_timelimit" "-1"
+"holder_timelimit_wait_until_activated" "1"
+"holder_can_drop" "1"
+"effects_permanent" "1"
+"effect_glow" "255 0 128"
+"effect_respiration" "0.0"
+"effect_friction" "100.0"
+"effect_gravity" "100.0"
+"effect_speed" "100.0"
+"effect_damage" "300.0"
+"display_name" "Razing Sword of Skarlon"
+"description" "A powerful sword!"
+"item_name" "rsword"
+"origin" "-952 3183 239"
+}
+{
+"classname" "item_inventory"
+"spawnflags" "128"
+"angles" "0 -41 0"
+"rendercolor" "0 0 0"
+"movetype" "5"
+"model" "models/deadhaz.mdl"
+"sequencename" "idle"
+"scale" "1"
+"minhullsize" "0 0 0"
+"maxhullsize" "0 0 0"
+"weight" "1.0"
+"carried_hidden" "1"
+"carried_sequencename" "carried"
+"carried_sequence" "1"
+"return_timelimit" "-1"
+"holder_timelimit_wait_until_activated" "1"
+"holder_can_drop" "1"
+"holder_keep_on_death" "1"
+"holder_keep_on_respawn" "1"
+"effects_permanent" "1"
+"effect_glow" "19 198 198"
+"effect_invulnerable" "1"
+"effect_respiration" "0.0"
+"effect_friction" "100.0"
+"effect_gravity" "100.0"
+"effect_speed" "125.0"
+"effect_damage" "300.0"
+"item_name" "geb"
+"display_name" "Golden Efreeti Boots"
+"description" "Shiny boots to protect your feet!"
+"origin" "1568 1350 90"
+}
+{
+"classname" "func_wall"
+"zhlt_embedlightmapresolution" "4"
+"rendercolor" "0 0 0"
+"zhlt_invisible" "1"
+"angles" "0 0 0"
+{
+( 548.000000 305.000000 185.000000 ) ( 612.000000 305.000000 185.000000 ) ( 612.000000 109.000000 185.000000 ) 1BLOCK2 [ 1 0 0 20 ] [ 0 -1 0 17 ] 0 1 1 
+( 548.000000 109.000000 146.000000 ) ( 612.000000 109.000000 146.000000 ) ( 612.000000 305.000000 146.000000 ) 1BLOCK2 [ 1 0 0 20 ] [ 0 -1 0 17 ] 0 1 1 
+( 548.000000 305.000000 185.000000 ) ( 548.000000 109.000000 185.000000 ) ( 548.000000 109.000000 146.000000 ) 1BLOCK2 [ 0 1 0 47 ] [ 0 0 -1 0 ] 0 1 1 
+( 612.000000 305.000000 146.000000 ) ( 612.000000 109.000000 146.000000 ) ( 612.000000 109.000000 185.000000 ) 1BLOCK2 [ 0 1 0 47 ] [ 0 0 -1 0 ] 0 1 1 
+( 612.000000 305.000000 185.000000 ) ( 548.000000 305.000000 185.000000 ) ( 548.000000 305.000000 146.000000 ) 1BLOCK2 [ 1 0 0 20 ] [ 0 0 -1 0 ] 0 1 1 
+( 612.000000 109.000000 146.000000 ) ( 548.000000 109.000000 146.000000 ) ( 548.000000 109.000000 185.000000 ) 1BLOCK2 [ 1 0 0 20 ] [ 0 0 -1 0 ] 0 1 1 
+}
+}
+{
+"classname" "info_node"
+"origin" "923 1104 90"
+}
+{
+"classname" "info_node"
+"origin" "1121 1103 26"
+}
+{
+"classname" "info_node"
+"origin" "697 1174 90"
+}
+{
+"classname" "info_node"
+"origin" "410 1183 90"
+}
+{
+"classname" "info_node"
+"origin" "123 1222 90"
+}
+{
+"classname" "info_node"
+"origin" "177 1516 90"
+}
+{
+"classname" "info_node"
+"origin" "490 1492 90"
+}
+{
+"classname" "monster_scientist"
+"spawnflags" "2"
+"angles" "0 0 0"
+"rendercolor" "0 0 0"
+"classify" "1"
+"body" "-1"
+"minhullsize" "0 0 0"
+"maxhullsize" "0 0 0"
+"freeroam" "1"
+"sequence" "13"
+"displayname" "freeport banker"
+"model" "models/eqdungeon/eq_paladin.mdl"
+"origin" "584 237 189"
+}
+{
+"classname" "light"
+"_light" "255 255 128 150"
+"_fade" "1.0"
+"origin" "616 210 234"
+}
+{
+"classname" "info_node"
+"origin" "762 255 153"
 }
