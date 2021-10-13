@@ -1,4 +1,0 @@
-#scope server
-//External events to be called on players can be placed here
-//Such as those used by tigger scriptevents
-//for a full list of currently available player externals, see est_scripts\reference_scripts\player\externals.script
