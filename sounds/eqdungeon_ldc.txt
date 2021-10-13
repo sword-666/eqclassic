@@ -1,8 +1,0 @@
-"headcrab/hc_attack1.wav" "eqclassic/spid_att.wav"
-"headcrab/hc_attack2.wav" "eqclassic/spid_att.wav"
-"headcrab/hc_attack3.wav" "eqclassic/spid_att.wav"
-"headcrab/hc_pain1.wav" "eqclassic/spid_hit.wav"
-"headcrab/hc_pain1.wav" "eqclassic/spid_hit.wav"
-"headcrab/hc_pain1.wav" "eqclassic/spid_hit.wav"
-"headcrab/hc_die1.wav" "eqclassic/spid_die.wav"
-"headcrab/hc_die2.wav" "eqclassic/spid_die.wav"
