@@ -18,7 +18,7 @@ Master Sword Continued bigtroll/green_dragon models:
 Dogg / Evaan / evil_squirrel
 
 EQ classic textures / .obj source:
-989 Studios + Brad McQuiad's Stimulant Addiction
+989 Studios + Brad McQuaid RIP aradune
 
 gorilla model -> Kobold
 
